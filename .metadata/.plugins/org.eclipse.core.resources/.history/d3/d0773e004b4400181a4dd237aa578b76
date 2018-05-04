@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<mx:Panel id="userLogin" width="400" height="300" layout="absolute" horizontalCenter="0" verticalCenter="0" title="登陆窗口"  creationCompleteEffect="moveEF">
+		
+		<mx:VBox horizontalCenter="0" verticalCenter="0" >
+			<mx:HBox>
+				<mx:Label text="用户名称：" width="70"/>
+				<mx:TextInput id="userName" maxChars="12" width="130" restrict="a-zA-Z0-9"/>
+			</mx:HBox>
+			<mx:HBox>
+				<mx:Label text="登陆密码：" width="70"/>
+				<mx:TextInput id="passWord" displayAsPassword="true" maxChars="12" width="130" restrict="a-zA-Z0-9"/>
+			</mx:HBox>
+			<mx:HBox>
+				<mx:Label text="验 证 码：" width="70"/>
+				<mx:TextInput id="checkCode" width="60" maxChars="4" toolTip="请输入右边的数字" restrict="a-zA-Z0-9" enter="submitClick()"/>
+				<mx:Label id="viewCode" width="80" fontWeight="bold" textAlign="center" click="initApp()" toolTip="看不清楚点这里"  fontSize="14"/>
+			</mx:HBox>
+		</mx:VBox>
+		
+		<mx:ControlBar horizontalAlign="center">
+			<mx:Button label="登 陆" id="loginButton" click="submitClick()"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function submitClick(event:MouseEvent):void  
+			{  
+				Alert.show("登录成功!");
+			}  
+		    private function initApp(event:MouseEvent):void
+			{
+				Alert.show("我也不知道这是啥");
+			}
+		]]>
+	</fx:Script>
+</s:Application>
